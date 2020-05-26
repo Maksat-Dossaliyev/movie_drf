@@ -44,6 +44,11 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'djoser',
+
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
+
     'drf_yasg',
     'django_filters',
 
@@ -205,12 +210,21 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+SOCIAL_AUTH_VK_OAUTH2_KEY = '7465807'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'g6qPHz7Npys0hfyBp4pZ'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-        # 'rest_framework_social_oauth2.authentication.SocialAuthentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
