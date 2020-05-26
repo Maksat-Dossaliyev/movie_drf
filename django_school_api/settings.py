@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'ckeditor',
     'ckeditor_uploader',
-    'django_filters',
     'djoser',
+    'drf_yasg',
+    'django_filters',
 
     # Local3
     'movies.apps.MoviesConfig'
@@ -216,13 +217,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-# smtp
-EMAIL_USER_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'maksmaks1537@gmail.com'
-EMAIL_HOST_PASSWORD = 'maksat2758377'
-EMAIL_PORT = 587
-
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
     'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
@@ -230,6 +224,13 @@ DJOSER = {
     'SEND_ACTIVATION_EMAIL': True,
     'SERIALIZERS': {},
 }
+
+# smtp
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'maksmaks1537@gmail.com'
+EMAIL_HOST_PASSWORD = 'maksat2758377'
+EMAIL_PORT = 587
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
